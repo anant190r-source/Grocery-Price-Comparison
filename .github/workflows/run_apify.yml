@@ -1,0 +1,29 @@
+name: Run Apify Tasks Daily
+
+on:
+  schedule:
+    - cron: '30 2 * * *'  # runs at 8:00 AM IST every day
+  workflow_dispatch:  # allows manual trigger too
+
+jobs:
+  run-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Mother Dairy Ghee
+        run: |
+          curl -X POST "https://api.apify.com/v2/actor-tasks/9FroSGv0BcmYyJFad/runs?token=${{ secrets.APIFY_TOKEN }}"
+          sleep 60
+
+      - name: Run Patanjali Ghee
+        run: |
+          curl -X POST "https://api.apify.com/v2/actor-tasks/olaPU5itvMPjSAgvv/runs?token=${{ secrets.APIFY_TOKEN }}"
+          sleep 60
+
+      - name: Run Amul Ghee
+        run: |
+          curl -X POST "https://api.apify.com/v2/actor-tasks/5evBSeFt2GcFzjuXv/runs?token=${{ secrets.APIFY_TOKEN }}"
+          sleep 60
+
+      - name: Run Blinkit Ghee
+        run: |
+          curl -X POST "https://api.apify.com/v2/actor-tasks/C41Ne9eAsZYIdxJTV/runs?token=${{ secrets.APIFY_TOKEN }}"
